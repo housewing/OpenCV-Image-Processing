@@ -82,11 +82,7 @@ int main(){
 	}
 	BBtime = getTickCount(); //check processing time 
 	printf("%.2lf sec \n",  (BBtime - AAtime) / getTickFrequency() ); //check processing time
-
-	//for(int x = 0; x < levels; x++)
-	//{
-	//	cout << CountIntensity[x] << endl;
-	//}
+	
 	imshow("dst",dst);
 
 	cv::waitKey();
