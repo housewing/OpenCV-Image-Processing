@@ -44,10 +44,10 @@ Mat getRotation(float _rotation)
 Mat getScale(float _scale)
 {
 	cv::Mat transformation = cv::Mat::zeros(2, 2, CV_32FC1);
-	transformation.at<float>(0, 0) = 0.5;
+	transformation.at<float>(0, 0) = _scale;
 	transformation.at<float>(0, 1) = 0.0;
 	transformation.at<float>(1, 0) = 0.0;
-	transformation.at<float>(1, 1) = 0.5;
+	transformation.at<float>(1, 1) = _scale;
 
 	return transformation;
 }
@@ -107,43 +107,6 @@ int main(int argc, char** argv)
 	pts.push_back(tmpThird);
 
 	draw(pts, 0);
-
-	//for (auto& p : pts)
-	//{
-	//	circle(canvas, p, 1, Scalar(0, 255, 0), 2, 8, 0);
-	//}
-
-
-	//Mat scaleMatrix = getScale(0.5);
-	//Point2f lenPt;
-	//lenPt.x = pts[0].x - pts[1].x;
-	//lenPt.y = pts[0].y - pts[1].y;
-	//float length = std::sqrt(std::pow(lenPt.x, 2) + std::pow(lenPt.y, 2));
-	//Point2f transPt = Point2f(0.0, 0.0);
-	//std::vector<Point> first = applyTransform(pts, scaleMatrix, pts[0], transPt, length);
-
-	//transPt = Point2f(1.0 / 2.0, 0.0);
-	//std::vector<Point> second = applyTransform(pts, scaleMatrix, pts[0], transPt, length);
-
-	//transPt = Point2f(1.0 / 4.0, std::sqrt(3) / 4.0);
-	//std::vector<Point> third = applyTransform(pts, scaleMatrix, pts[0], transPt, length);
-
-	//const Point* f[1] = { &first[0] };
-	//const Point* s[1] = { &second[0] };
-	//const Point* t[1] = { &third[0] };
-	//int npt[] = { 3 };
-
-	//fillPoly(canvas, f, npt, 1, Scalar(0, 255, 0), 8);
-	//fillPoly(canvas, s, npt, 1, Scalar(0, 255, 0), 8);
-	//fillPoly(canvas, t, npt, 1, Scalar(0, 255, 0), 8);
-
-
-	//for (size_t i = 0; i < first.size(); i++)
-	//{
-	//	circle(image, first[i], 1, Scalar(0, 255, 0), 2, 8, 0);
-	//	circle(image, second[i], 1, Scalar(0, 255, 255), 2, 8, 0);
-	//	circle(image, third[i], 1, Scalar(0, 0, 255), 2, 8, 0);
-	//}
 
 	imshow("canvas", canvas);
 
